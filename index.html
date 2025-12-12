@@ -1,114 +1,157 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="tr">
-<head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Git Automation</title>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" />
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
-  <div class="page">
-    <div class="card">
-      <h1>Git Automation</h1>
-      <p class="lead">Enter PR information. (Optional fields are indicated.)</p>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Git Automation</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="page">
+      <div class="card">
+        <h1>Git Automation</h1>
+        <p class="lead">
+          Enter PR information. (Optional fields are indicated.)
+        </p>
 
-      <form id="gitForm" class="grid" autocomplete="off">
-        <!-- 1) Branch Type (fixed options) -->
-        <div class="full">
-          <label>Branch Type</label>
-          <div class="custom-select-wrap">
-            <div class="custom-select" id="branchTypeSelect">
-              <span class="select-value">feature</span>
-              <i class="fa fa-chevron-down custom-select-arrow"></i>
-            </div>
-            <div class="custom-select-dropdown" id="branchTypeDropdown"></div>
-          </div>
-        </div>
-
-        <!-- 2) Issue number -->
-        <div>
-          <label for="issueNumber">Issue number</label>
-          <div class="input-wrapper">
-            <input id="issueNumber" name="issueNumber" type="number" min="1" placeholder="Enter Issue Number" />
-            <div class="error-message" id="issueNumberError"></div>
-          </div>
-        </div>
-
-        <!-- 3) Branch Name (Optional) -->
-        <div>
-          <label for="branchName">Branch Name <span class="muted">(Optional)</span></label>
-          <div class="input-wrapper">
-            <input id="branchName" name="branchName" type="text" placeholder="Enter Optional Branch Name" />
-            <div class="error-message" id="branchNameError"></div>
-          </div>
-        </div>
-
-        <!-- 4) Commit Message -->
-        <div class="full">
-          <label for="commitMessage">Commit Message</label>
-          <div class="input-wrapper">
-            <input id="commitMessage" name="commitMessage" type="text" placeholder="Enter Commit Message" />
-            <div class="error-message" id="commitMessageError"></div>
-          </div>
-        </div>
-
-        <!-- 5) Issue Repository is (custom select) -->
-        <div class="full">
-          <label>Issue Repository is</label>
-          <div class="row">
+        <form id="gitForm" class="grid" autocomplete="off">
+          <!-- 1) Branch Type (fixed options) -->
+          <div class="full">
+            <label>Branch Type</label>
             <div class="custom-select-wrap">
-              <div class="custom-select" id="repoSelect">
-                <span class="select-value">current</span>
+              <div class="custom-select" id="branchTypeSelect">
+                <span class="select-value">feature</span>
                 <i class="fa fa-chevron-down custom-select-arrow"></i>
               </div>
-              <div class="custom-select-dropdown" id="repoDropdown"></div>
+              <div class="custom-select-dropdown" id="branchTypeDropdown"></div>
             </div>
-            <button type="button" id="addRepoBtn" class="icon-btn" title="Add new">
-              <i class="fa fa-plus"></i>
-            </button>
           </div>
-        </div>
 
-        <div class="full actions">
-          <button type="submit" class="btn">Create PR Payload</button>
-        </div>
-      </form>
+          <!-- 2) Issue number -->
+          <div>
+            <label for="issueNumber">Issue number</label>
+            <div class="input-wrapper">
+              <input
+                id="issueNumber"
+                name="issueNumber"
+                type="number"
+                min="1"
+                placeholder="Enter Issue Number"
+              />
+              <div class="error-message" id="issueNumberError"></div>
+            </div>
+          </div>
 
-      <!-- Output Section -->
-      <div class="output-section" id="outputSection">
-        <h2>Generated Output</h2>
-        <div class="output-item">
-          <div class="output-label">Branch Name</div>
-          <div class="output-value">
-            <span class="output-text" id="outputBranchName"></span>
-            <button type="button" class="copy-btn" data-copy="branchName" disabled>
-              <i class="fa fa-copy"></i> Copy
-            </button>
+          <!-- 3) Branch Name (Optional) -->
+          <div>
+            <label for="branchName"
+              >Branch Name <span class="muted">(Optional)</span></label
+            >
+            <div class="input-wrapper">
+              <input
+                id="branchName"
+                name="branchName"
+                type="text"
+                placeholder="Enter Optional Branch Name"
+              />
+              <div class="error-message" id="branchNameError"></div>
+            </div>
           </div>
-        </div>
-        <div class="output-item">
-          <div class="output-label">Commit Message</div>
-          <div class="output-value">
-            <span class="output-text" id="outputCommitMessage"></span>
-            <button type="button" class="copy-btn" data-copy="commitMessage" disabled>
-              <i class="fa fa-copy"></i> Copy
-            </button>
+
+          <!-- 4) Commit Message -->
+          <div class="full">
+            <label for="commitMessage">Commit Message</label>
+            <div class="input-wrapper">
+              <input
+                id="commitMessage"
+                name="commitMessage"
+                type="text"
+                placeholder="Enter Commit Message"
+              />
+              <div class="error-message" id="commitMessageError"></div>
+            </div>
           </div>
-        </div>
-        <div class="output-item">
-          <div class="output-label">PR Title</div>
-          <div class="output-value">
-            <span class="output-text" id="outputPRTitle"></span>
-            <button type="button" class="copy-btn" data-copy="prTitle" disabled>
-              <i class="fa fa-copy"></i> Copy
-            </button>
+
+          <!-- 5) Issue Repository is (custom select) -->
+          <div class="full">
+            <label>Issue Repository is</label>
+            <div class="row">
+              <div class="custom-select-wrap">
+                <div class="custom-select" id="repoSelect">
+                  <span class="select-value">current</span>
+                  <i class="fa fa-chevron-down custom-select-arrow"></i>
+                </div>
+                <div class="custom-select-dropdown" id="repoDropdown"></div>
+              </div>
+              <button
+                type="button"
+                id="addRepoBtn"
+                class="icon-btn"
+                title="Add new"
+              >
+                <i class="fa fa-plus"></i>
+              </button>
+            </div>
+          </div>
+
+          <div class="full actions">
+            <button type="submit" class="btn">Create PR Payload</button>
+          </div>
+        </form>
+
+        <!-- Output Section -->
+        <div class="output-section" id="outputSection">
+          <h2>Generated Output</h2>
+          <div class="output-item">
+            <div class="output-label">Branch Name</div>
+            <div class="output-value">
+              <span class="output-text" id="outputBranchName"></span>
+              <button
+                type="button"
+                class="copy-btn"
+                data-copy="branchName"
+                disabled
+              >
+                <i class="fa fa-copy"></i> Copy
+              </button>
+            </div>
+          </div>
+          <div class="output-item">
+            <div class="output-label">Commit Message</div>
+            <div class="output-value">
+              <span class="output-text" id="outputCommitMessage"></span>
+              <button
+                type="button"
+                class="copy-btn"
+                data-copy="commitMessage"
+                disabled
+              >
+                <i class="fa fa-copy"></i> Copy
+              </button>
+            </div>
+          </div>
+          <div class="output-item">
+            <div class="output-label">PR Title</div>
+            <div class="output-value">
+              <span class="output-text" id="outputPRTitle"></span>
+              <button
+                type="button"
+                class="copy-btn"
+                data-copy="prTitle"
+                disabled
+              >
+                <i class="fa fa-copy"></i> Copy
+              </button>
+            </div>
           </div>
         </div>
       </div>
     </div>
-  </div>
 
-  <script src="script.js"></script>
-</body>
+    <script src="script.js"></script>
+  </body>
 </html>
