@@ -301,7 +301,7 @@ document.getElementById("gitForm").addEventListener("submit", (e) => {
   const issueNumber = document.getElementById("issueNumber").value.trim();
   const branchName = document.getElementById("branchName").value.trim();
   const commitMessage = document.getElementById("commitMessage").value.trim();
-  const repo = repoSelectObj.getValue();
+  const repo = repoSelectObj.getValue().replace("_", "-");
 
   let isValid = true;
 
@@ -343,8 +343,7 @@ document.getElementById("gitForm").addEventListener("submit", (e) => {
 
   // Display outputs
   document.getElementById("outputBranchName").textContent = outputBranchName;
-  document.getElementById("outputCommitMessage").textContent =
-    outputCommitMessage;
+  document.getElementById("outputCommitMessage").textContent = outputCommitMessage;
   document.getElementById("outputPRTitle").textContent = outputPRTitle;
 
   // Enable copy buttons
