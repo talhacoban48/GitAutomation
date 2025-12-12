@@ -339,6 +339,44 @@ input.error {
   border-color: var(--success);
 }
 
+/* Footer */
+.card-footer {
+  margin-top: 18px;
+  padding-top: 12px;
+  border-top: 1px solid #f1f5f9
+}
+
+.footer-inner {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  justify-content: center;
+  padding-top: 8px
+}
+
+.developed {
+  font-size: 13px;
+  color: var(--footer-muted);
+  text-transform: lowercase
+}
+
+.github-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  text-decoration: none
+}
+
+.github-icon {
+  font-size: 18px;
+  color: #111827
+}
+
+.github-username {
+  font-weight: 700;
+  color: #111827
+}
+
 @media (max-width: 640px) {
   .grid {
     grid-template-columns: 1fr;
