@@ -309,7 +309,7 @@ document.getElementById("gitForm").addEventListener("submit", (e) => {
   if (!issueNumber || issueNumber < 1) {
     showError(
       "issueNumber",
-      "Issue number is required and must be a positive number."
+      "Issue number is required"
     );
     isValid = false;
   }
