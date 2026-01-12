@@ -339,7 +339,7 @@ document.getElementById("gitForm").addEventListener("submit", (e) => {
   const branchSuffix = sanitizedBranchName || slugify(commitMessage);
   const outputBranchName = `${branchType}/iss-${issueNumber}-${branchSuffix}`;
   const outputCommitMessage = `${repo} #${issueNumber} | ${commitMessage}`;
-  const outputPRTitle = `${branchType.toUpperCase()} #${issueNumber} | PR`;
+  const outputPRTitle = branchType == "feature" ? `FEAT #${issueNumber} | PR` : `${branchType.toUpperCase()} #${issueNumber} | PR`;
 
   // Display outputs
   document.getElementById("outputBranchName").textContent = outputBranchName;
