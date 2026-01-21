@@ -188,7 +188,7 @@ function validateGitBranchName(name) {
 
 function validateCommitMessage(msg) {
   if (!msg || msg.trim().length === 0) return false;
-  if (msg.trim().length > 72) return false;
+  if (msg.trim().length > 124) return false;
   return true;
 }
 
@@ -327,7 +327,7 @@ document.getElementById("gitForm").addEventListener("submit", (e) => {
   if (!validateCommitMessage(commitMessage)) {
     showError(
       "commitMessage",
-      "Commit message is required and must be max 72 characters."
+      "Commit message is required and must be max 124 characters."
     );
     isValid = false;
   }
