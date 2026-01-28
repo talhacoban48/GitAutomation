@@ -299,8 +299,8 @@ document.getElementById("gitForm").addEventListener("submit", (e) => {
 
   const branchType = branchTypeSelect.getValue();
   const issueNumber = document.getElementById("issueNumber").value.trim();
-  const branchName = document.getElementById("branchName").value.trim();
-  const commitMessage = document.getElementById("commitMessage").value.trim();
+  const branchName = document.getElementById("branchName").value.trim().toLowerCase();
+  const commitMessage = document.getElementById("commitMessage").value.trim().toLowerCase();
   const repo = repoSelectObj.getValue().replace("_", "-");
 
   let isValid = true;

@@ -133,7 +133,7 @@ body {
     1206px 1851px #FFF, 1762px 695px #FFF, 69px 1813px #FFF, 614px 1605px #FFF, 937px 190px #FFF,
     1435px 572px #FFF, 272px 872px #FFF, 126px 1422px #FFF, 897px 663px #FFF, 1681px 1085px #FFF,
     44px 1284px #FFF, 825px 678px #FFF, 1715px 1075px #FFF, 1222px 1966px #FFF, 1778px 810px #FFF;
-  animation: animStar 50s linear infinite;
+  animation: animStar 150s linear infinite;
 }
 
 #stars:after {
@@ -368,7 +368,7 @@ body {
     927px 1752px #FFF, 1481px 1452px #FFF, 1070px 1191px #FFF, 1644px 1265px #FFF, 1369px 1313px #FFF,
     800px 1965px #FFF, 1465px 1078px #FFF, 1157px 1381px #FFF, 1428px 1691px #FFF, 1397px 1126px #FFF,
     943px 1578px #FFF, 1449px 1504px #FFF, 1026px 1407px #FFF, 1660px 1104px #FFF, 1243px 1739px #FFF;
-  animation: animStar 150s linear infinite;
+  animation: animStar 50s linear infinite;
 }
 
 #stars3:after {
